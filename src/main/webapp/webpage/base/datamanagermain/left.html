@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<%@ include file="/taglibs/taglibs.html"%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/jquery.js"></script>
+<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/language/cn.js"></script>
+<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/framework.js"></script>
+<link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link href="<%= path %>ui-framework/qui/system/flatBlue_tabh_list/skin/style.css" rel="stylesheet" splitMode="true"  type="text/css" id="skin" />
+<link rel="stylesheet" type="text/css" id="customSkin"/>
+<!--框架必需end-->
+
+<!-- 树型抽屉导航start-->
+<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/tree/ztree/ztree.js"></script>
+<link href="<%=path%>ui-framework/qui/libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/nav/treeAccordion_tabh.js"></script>
+<!-- 树型抽屉导航end -->
+
+</head>
+<style>
+	.ztree li span.zbutton.diy01_ico_open, .ztree li span.zbutton.diy01_ico_close{width:18px!important;height:18px!important;padding-top:0;}
+</style>
+<body leftFrame="true">
+	<div>
+		<ul id="treeDemo" class="ztree ztree_accordition"></ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<basic>
+	<!-- 1、数据库字典初始化 -->
+	<dics>
+		<dic typeGroupCode="iconType" typeGroupName="图标类型" >
+			<items>
+				<item typeName="应用图标" typeCode="1"></item>
+				<item typeName="功能图标" typeCode="2"></item>
+				<item typeName="操作图标" typeCode="3"></item>
+			</items>
+		</dic>
+		<dic typeGroupCode="include" typeGroupName="是否包含" >
+			<items>
+				<item typeName="是" typeCode="1"></item>
+				<item typeName="否" typeCode="0"></item>
+			</items>
+		</dic>
+		<dic typeGroupCode="appType" typeGroupName="应用类型" >
+			<items>
+				<item typeName="系统应用" typeCode="1"></item>
+				<item typeName="普通应用" typeCode="2"></item>
+			</items>
+		</dic>
+		<dic typeGroupCode="roleType" typeGroupName="角色类型" >
+			<items>
+				<item typeName="系统角色" typeCode="1"></item>
+				<item typeName="普通角色" typeCode="2"></item>
+			</items>
+		</dic>
+		<dic typeGroupCode="yesorno" typeGroupName="逻辑条件" >
+			<items>
+				<item typeName="是" typeCode="Y"></item>
+				<item typeName="否" typeCode="N"></item>
+			</items>
+		</dic>
+		<dic typeGroupCode="sex" typeGroupName="性别类" >
+			<items>
+				<item typeName="女性" typeCode="0"></item>
+				<item typeName="男性" typeCode="1"></item>
+			</items>
+		</dic>
+		<dic typeGroupCode="status" typeGroupName="启用停用状态" >
+			<items>
+				<item typeName="停用" typeCode="0"></item>
+				<item typeName="启用" typeCode="1"></item>
+			</items>
+		</dic>
+	</dics>
+	<!-- 图标初始化 -->
+	<icons>
+		<icon name="增加"   type="2" path="upload/system/icon/add.png"></icon>
+		<icon name="删除"   type="2" path="upload/system/icon/remove.png"></icon>
+		<icon name="编辑"   type="2" path="upload/system/icon/edit.png"></icon>
+		<icon name="文件"   type="2" path="upload/system/icon/file.png"></icon>
+		<icon name="刷新"   type="2" path="upload/system/icon/reload.png"></icon>
+		<icon name="搜索"   type="2" path="upload/system/icon/search.png"></icon>
+		<icon name="文件夹"  type="2" path="upload/system/icon/folder.png"></icon>
+	</icons>
+	
+	<!-- 角色初始化 -->
+	<roles>
+	    <role name="系统角色" code="systemRole" type="1" iconName="文件"></role>
+	</roles>
+	
+	<applications>
+		<application code="jump" name="系统应用" iconName="文件" status="1" type="1" url="http://127.0.0.1:8080/jopm/"  roleCode="systemRole">
+			<functions>
+				<function code="userManage" name="用户管理" url="webpage/base/user/user.html" status="1"  iconName="文件">
+<!-- 				 <operations> -->
+<!-- 					   <operation code="add" name="录入" iconName="文件"></operation> -->
+<!-- 					   <operation code="edit" name="编辑" iconName="文件"></operation> -->
+<!-- 					   <operation code="delete" name="删除" iconName="文件"></operation> -->
+<!-- 					   <operation code="enable" name="启用/停用" iconName="文件"></operation> -->
+<!-- 					   <operation code="change" name="重置密码" iconName="文件"></operation> -->
+<!-- 				   </operations> -->
+				</function>
+				<function code="orgManage" name="机构管理" url="webpage/base/organization/organization.html" status="1"  iconName="文件">
+<!-- 				  <operations>  -->
+<!-- 				   <operation code="add" name="录入机构" iconName="文件"></operation> -->
+<!-- 				   <operation code="delete" name="删除" iconName="文件"></operation> -->
+<!-- 				   </operations> -->
+				</function>
+				<function code="departManage" name="部门管理" url="webpage/base/department/department.html" status="1" iconName="文件">
+				
+				</function>
+				<function code="dictionaryManage" name="数据字典" url="webpage/base/dictionary/dictionaryGroup.html"  status="1"  iconName="文件">
+				
+				</function>
+				<function code="iconManage" name="图标管理" url="webpage/base/icon/icon.html"  status="1" iconName="文件">
+				
+				</function>
+				<function code="appManage" name="应用管理" url="webpage/base/app/app.html" status="1"  iconName="文件">
+				
+				</function>
+				<function code="roleManage" name="角色管理" url="webpage/base/role/roleList.html" status="1"  iconName="文件">
+				
+				</function>
+				<function code="logManage" name="日志管理" url="webpage/base/log/log.html" status="1"  iconName="文件">
+				</function>
+			</functions>
+		</application>
+	</applications>
+	
+</basic>

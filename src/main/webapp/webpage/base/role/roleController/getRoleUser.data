@@ -1,0 +1,94 @@
+[
+	{
+		"id" : 'org',
+		"parentId" : null,
+		"name" : '机构',
+		"open" : true, 
+		"userList" : [
+			{
+				"userId" : 'zhangsan',
+				"userRealName" : 'Susan',
+				"checked" : true 
+			},
+			{
+				"userId" : 'lee',
+				"userRealName" : 'Li Lei',
+				"checked" : false 
+			},
+			{
+				"userId" : 'Deo',
+				"userRealName" : 'Deo-Prime',
+				"checked" : true 
+			},
+		]
+	},
+	{
+		"id" : 'depart1',
+		"parentId" : 'org',
+		"name" : '部门A1',
+		"open" : true, 
+		"userList" : [
+			{
+				"userId" : 'hejialiang',
+				"userRealName" : 'He Jialiang',
+				"checked" : true 
+			},
+			{
+				"userId" : 'liqiang',
+				"userRealName" : 'Li Qiang',
+				"checked" : false 
+			},
+			{
+				"userId" : 'fanyushuai',
+				"userRealName" : 'Fan Yushuai',
+				"checked" : false 
+			},
+		]
+	},
+	{
+		"id" : 'depart11',
+		"parentId" : 'depart1',
+		"name" : '部门A1-1',
+		"open" : true, 
+		"userList" : [
+			{
+				"userId" : 'sunpeng',
+				"userRealName" : 'sunpeng',
+				"checked" : true 
+			},
+			{
+				"userId" : 'lideming',
+				"userRealName" : 'lideming',
+				"checked" : false 
+			},
+			{
+				"userId" : 'chenkaixuan',
+				"userRealName" : 'chenkaixuan',
+				"checked" : false 
+			},
+		]
+	},
+	{
+		"id" : 'depart2',
+		"parentId" : 'org',
+		"name" : '部门A2',
+		"open" : true, 
+		"userList" : [
+			{
+				"userId" : 'liying',
+				"userRealName" : 'liying',
+				"checked" : true 
+			},
+			{
+				"userId" : 'wangjing',
+				"userRealName" : 'wangjing',
+				"checked" : false 
+			},
+			{
+				"userId" : 'songtao',
+				"userRealName" : 'songtao',
+				"checked" : false 
+			},
+		]
+	}
+]

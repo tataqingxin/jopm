@@ -1,0 +1,27 @@
+{
+	success: true,
+	message: "查询成功",
+	obj: {
+		list: [
+			{
+				id: 'a1-fx',
+				name: '功能1',
+				type: 'func',
+				isParent: true
+				
+			},
+			{
+				id: 'f2',
+				name: '功能2',
+				type: 'func',
+				isParent: true
+			},
+			{
+				id: 'a1-fx-om',
+				name: '操作1',
+				type: 'oper',
+				isParent: false
+			}
+		]
+	}
+}

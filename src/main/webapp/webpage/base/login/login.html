@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>登录页面</title>
+	<!--框架必需start-->
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+	<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/login.js"></script>
+	<link href="<%=path%>ui-framework/qui/system/login/skin/style.css" rel="stylesheet" type="text/css" id="skin"/>
+	<!--框架必需end-->
+	<!--居中显示start-->
+	<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/method/center-plugin.js"></script>
+	<!--居中显示end-->
+	<style>
+	/*提示信息*/	
+	#cursorMessageDiv {
+		position: absolute;
+		z-index: 99999;
+		border: solid 1px #cc9933;
+		background: #ffffcc;
+		padding: 2px;
+		margin: 0px;
+		display: none;
+		line-height:150%;
+	}
+	/*提示信息*/
+</style>
+</head>
+<body>
+	<div class="login_main">
+		<div class="login_top">
+		</div>
+		<div class="login_middle">
+			<div class="login_middleleft"></div>
+			<div class="login_middlecenter">
+					<form id="loginForm" action="login.do" class="login_form" method="post">
+					<div class="login_user"><input type="text" id="username" value="system_admin" /></div>
+					<div class="login_pass"><input type="password" id="password" value="system123456" /></div>
+					<div class="login_button">
+						<div class="login_button_left"><input type="button" onclick="login()"/>
+<!-- 						&nbsp;&nbsp;&nbsp;<a href="<%=path%>webpage/base/login/forgetPwd.html" target="_Blank">忘记密码？</a> -->
+						</div>
+						<div class="login_button_right"><input type="reset" value=""/></div>
+						<div class="clear"></div>
+					</div>
+					</form>
+					<div class="login_info" style="display:none;"></div>
+			</div>
+			<div class="login_middleright"></div>
+			<div class="clear"></div>
+		</div>
+		<div class="login_bottom">
+			<div class="login_copyright">紫金云教育科技有限公司</div>
+		</div>
+	</div>
+<script type="text/javascript">
+
+	//如果用户已登陆，自动跳转到首页
+	$(document).ready(function () {
+	    var sessionInfo =  "<%=session.getAttribute("USER_SESSION")%>";
+	    if(sessionInfo!='null'){
+	    	  window.location="<%=path%>webpage/base/main/main.html";  
+	    };
+	});
+	
+	$(function(){
+		//居中
+		 $('.login_main').center(null,true);
+		 document.getElementById("username").focus();
+		 $("#username").keydown(function(event){
+		 	if(event.keyCode==13){
+				login()
+			}
+		 })
+		 $("#password").keydown(function(event){
+		 	if(event.keyCode==13){
+				login()
+			}
+		 })
+		 
+	})
+
+	//登录
+	function login() {
+		var errorMsg = "";
+		var loginName = document.getElementById("username");
+		var password = document.getElementById("password");
+		if(!loginName.value){
+			errorMsg += "&nbsp;&nbsp;用户名不能为空!";
+		}
+		if(!password.value){
+			errorMsg += "&nbsp;&nbsp;密码不能为空!";
+		}
+
+		if(errorMsg != ""){
+			$(".login_info").html(errorMsg);
+			$(".login_info").show();
+		}
+		else{
+			$(".login_info").show();
+			$(".login_info").html("&nbsp;&nbsp;正在登录中...");
+			//登录处理
+			$.post("<%=path%>loginController/login/user",
+				  {"username":loginName.value,"password":password.value},
+				  function(result){
+					  if(result == null){
+						  $(".login_info").html("&nbsp;&nbsp;登陆失败！");
+						  return false;
+					  }
+					  if(result.success=="true"||result.success==true){
+					  	  $(".login_info").html("&nbsp;&nbsp;登录成功，正在转到主页...");
+						  window.location="<%=path%>webpage/base/main/main.html";  
+					  }
+					  else{
+					  	 $(".login_info").html("&nbsp;&nbsp;"+result.message);
+					  }
+				  },"json");
+		}
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+	<dubbo:application name="JOPM"></dubbo:application>
+	
+	<dubbo:registry address="zookeeper://192.168.0.36:2181" check="false"></dubbo:registry>
+	
+	<dubbo:protocol name="dubbo" port="20883" ></dubbo:protocol>
+	<dubbo:service interface="com.zjy.jopm.sdk.service.OpenDictService" ref="openDictService" executes="10" />
+
+	<dubbo:service interface="com.zjy.jopm.sdk.service.OpenOrgService" ref="openOrgService" executes="10" />
+
+	<dubbo:service interface="com.zjy.jopm.sdk.service.OpenParamService" ref="openParamService" executes="10" />
+
+	<dubbo:service interface="com.zjy.jopm.sdk.service.OpenSecurityService" ref="openSecurityService" executes="10" />
+
+	<dubbo:service interface="com.zjy.jopm.sdk.service.OpenUserService" ref="openUserService" executes="10" /> 
+		
+	<dubbo:service interface="com.zjy.jopm.sdk.service.AppDataService" ref="appDataService" executes="10" />
+	
+	<dubbo:service interface="com.zjy.jopm.sdk.service.PasswordCheckService" ref="passwordCheckService" executes="10" />
+	
+	<dubbo:consumer timeout="5000" />
+	<dubbo:reference id="logServerExtService" interface="com.zjy.log.base.taskLog.service.LogExtService" />
+</beans>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>机构管理</title>
+    <!--框架必需start-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+    <link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+    <!--框架必需end-->
+    <!--弹出框-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/drag.js" id="drag"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/dialog.js" id="dialog"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/quiDialogWrapper.js"></script>
+    <!--数据表格start-->
+    <script src="<%= path %>ui-framework/qui/libs/js/table/quiGrid.js" type="text/javascript" id="quiGrid"></script>
+    <!--数据表格end-->
+    <!-- 表单验证start -->
+    <script src="<%= path %>ui-framework/qui/libs/js/form/validationRule.js" type="text/javascript" id="validationRule"></script>
+    <script src="<%= path %>ui-framework/qui/libs/js/form/validation.js" type="text/javascript" id="validation"></script>
+    <!-- 表单验证end -->
+    <!--布局控件start-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/nav/layout.js"></script>
+    <!--布局控件end-->
+    <!--树组件start -->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/tree/ztree/ztree.js"></script>
+    <link href="<%= path %>ui-framework/qui/libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+    <!-- 树形下拉框start -->
+	<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/form/selectTree.js"></script>
+	<!-- 树形下拉框end -->
+	<!-- 表单异步提交start -->
+	<script src="<%= path %>ui-framework/qui/libs/js/form/form.js" type="text/javascript"></script>
+	<!-- 表单异步提交end -->
+    <style>
+        .l-layout-center{
+            border:none!important;
+        }
+        .l-layout-left{
+            border-bottom:none!important;
+        }
+        .l-layout-drophandle-left{
+            width: 10px;
+        }
+    </style>
+</head>
+<body>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+			<div id="layout1">
+			    <div id="leftCon" position="left" style="" panelTitle="机构管理">
+			    	<input type="button" value="新建机构" onclick="addOrganization()" style="margin-left:8px;margin-top:9px;"/>
+			    	<input type="button" value="删除" onclick="delOrganization()"/>
+			        <div class="orgTreeContainer">
+			            <ul id="tree-1" class="ztree"></ul>
+			        </div>
+			    </div>
+			    <div id="centerCon" position="center" style="" panelTitle="机构信息">
+			        <div style="margin: 0;padding: 0 5px 0 0;">
+						<div class="box1" id="formContent" whiteBg="true" style="align:center;">
+			        <form id="myFormId" action="" method="post" target="frmright">
+						     <input type="hidden" name="orgarizationId" id="orgarizationId" />
+						     <input type="hidden" name="id" id="id" />
+								<table class="tableStyle" formMode="transparent">
+									<tr id="isEdit">
+										<td width="45%" >所属机构：</td>
+										<td><input type="text" name="orgarizationName" id="orgarizationName" readonly="readonly"/></td>
+									</tr>
+									<tr>
+										<td width="45%">名称：</td>
+										<td><input type="text" name="name" id="name" class="validate[required,length[1,20]]" /></td>
+						           </tr>
+						           <tr>
+						               <td width="45%" >编码：</td>
+						               <td><input type="text" name="code" id="code" class="validate[required,length[1,20],custom[noSpecialCaracters]]" /></td>
+						           </tr>
+						           <tr>
+						               <td width="45%">排序：</td>
+						               <td><input type="text" name="range" id="range" class="validate[required,length[1,20],custom[onlyNumber]]" /></td>
+						           </tr>
+						           <tr>
+						               <td width="45%">描述：</td>
+										   <td>
+										   <textarea name="description" id="description" class="validate[length[0,50]]"></textarea>
+						                </td>
+						               
+						           </tr>
+<!-- 						           <tr> -->
+<!-- 						               <td colspan="2"> -->
+<!-- 						                   <input type="submit" value="保存"></input> -->
+<!-- 						                </td> -->
+<!-- 						            </tr> -->
+						        </table>
+						    </div>
+						</form>
+						 <div align="center" ><button onclick="saveData()">保存</button></div>
+			        </div>
+			    </div>
+			    <div id="rightCon" position="right" style="" panelTitle="部门信息">
+			        <div style="margin: 0;padding: 0 5px 0 0;">
+				        <div class="orgTreeContainer">
+				            <ul id="tree-2" class="ztree"></ul>
+				        </div>
+			        </div>
+			    </div>
+			</div>
+		</td>
+	</tr>
+</table>
+<script src="js/organization.js"></script>
+</body>
+</html>

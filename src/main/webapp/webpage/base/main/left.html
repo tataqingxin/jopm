@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--框架必需start-->
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+	<link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+	<!--框架必需end-->
+
+	<!-- 树start-->
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/tree/ztree/ztree.js"></script>
+	<link href="<%= path %>ui-framework/qui/libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+	<!-- 树end -->
+	
+	<script type="text/javascript" src="<%=path%>/webpage/base/main/js/menu.js"></script>
+</head>
+
+<body leftFrame="true">
+
+<div id="scrollContent" style="overflow-x:hidden;">
+
+	<div>
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+
+</div>
+</body>
+</html>

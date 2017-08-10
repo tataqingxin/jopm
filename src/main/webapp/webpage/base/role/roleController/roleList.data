@@ -1,0 +1,18 @@
+{
+	"pager.pageNo" : 2,
+	"pager.totalRows" : 23,
+	"rows" : [
+		{
+			"id"   : "X",	
+			"name" : "X 战警",
+			"code" : "X MEN",
+			"type" : "1"
+		},
+		{	
+			"id"   : "A",
+			"name" : "角色A",
+			"code" : "code a",
+			"type" : "2"
+		}
+	]
+}

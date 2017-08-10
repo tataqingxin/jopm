@@ -1,0 +1,10 @@
+{"treeNodes":[
+  { "id":1,  "parentId":0, "name":"中心1", "open": true,"icon":"<%= path %>ui-framework/qui/libs/icons/user_group.gif"},
+  { "id":11, "parentId":1, "name":"部门1","icon":"<%= path %>ui-framework/qui/libs/icons/user_group.gif"},
+  { "id":12, "parentId":1, "name":"部门2","icon":"<%= path %>ui-framework/qui/libs/icons/user_group.gif"},
+  { "id":13, "parentId":1, "name":"部门3","icon":"<%= path %>ui-framework/qui/libs/icons/user_group.gif"},
+  { "id":2,  "parentId":11, "name":"中心2", "open": true,"icon":"<%= path %>ui-framework/qui/libs/icons/user_group.gif"},
+  { "id":21, "parentId":11, "name":"部门4","icon":"<%= path %>ui-framework/qui/libs/icons/user_group.gif"},
+  { "id":22, "parentId":11, "name":"部门5","icon":"<%= path %>ui-framework/qui/libs/icons/user_group.gif"},
+  { "id":23, "parentId":11, "name":"部门6","icon":"<%= path %>ui-framework/qui/libs/icons/user_group.gif"}
+]}

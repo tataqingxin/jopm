@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--框架必需start-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+  	<link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+    <!--框架必需end-->
+    <!--树组件start -->
+	<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/tree/ztree/ztree.js"></script>
+	<link href="<%=path%>ui-framework/qui/libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+	<!--树组件end -->
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/drag.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/dialog.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/quiDialogWrapper.js"></script>
+</head>
+<body>
+	<div class="box1" >
+		<div style="padding-bottom:15px;">
+		    <ul id="appFunctionTree" class="ztree"></ul>
+		</div>
+	</div>
+    <div style="position:fixed;bottom:0px;width:97.5%;margin-left:7px;">
+    	<form id="appFunctionForm">
+			<table class="tableStyle" formMode="line">
+				<tr>
+		        	<td colspan="2">
+		        		<input type="hidden" name="functionIds" id="functionIds" >
+		        		<input type="button" value="保存" onclick="save()"/>
+		        	</td>
+		        </tr>
+			</table>
+		</form>
+    </div>
+<script type="text/javascript" src="js/appFunction.js"></script>
+</body>
+</html>

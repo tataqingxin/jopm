@@ -1,0 +1,28 @@
+{
+	success: true,
+	message: "查询成功",
+	obj: {
+		list: [
+			{
+				id: "a1",
+				name: "应用1",
+				type: "app",
+				isParent: true,
+				nocheck: true,
+				rootId: "sth"
+			},
+			{
+				id: "a2",
+				name: "应用2",
+				type: "app",
+				isParent: true,
+				nocheck: true,
+				rootId: "sth"
+			}
+		]
+	},
+	attributes: {
+		checkedFunctionIds: "a1-fx,a1-fy,a2-fz",
+		checkedOperationIds: "a1-fx-om,a1-fx-on"
+	}
+}

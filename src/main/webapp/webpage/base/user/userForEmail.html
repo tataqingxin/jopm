@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Title</title>
+    <!--框架必需start-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+    <link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+    <!--框架必需end-->
+    <!-- 日期选择框start -->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/form/datePicker/WdatePicker.js"></script>
+	<!-- 表单验证start -->
+	<script src="<%= path %>ui-framework/qui/libs/js/form/validationRule.js" type="text/javascript"></script>
+	<script src="<%= path %>ui-framework/qui/libs/js/form/validation.js" type="text/javascript"></script>
+	<!-- 表单验证end -->
+    <!--表单异步提交start-->
+    <script src="<%= path %>ui-framework/qui/libs/js/form/form.js" type="text/javascript"></script>
+    <!--表单异步提交end-->
+    <!--树组件start -->
+    <script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/tree/ztree/ztree.js"></script>
+    <link href="<%=path%>ui-framework/qui/libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+    <!-- 树形下拉框start -->
+    <script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/form/selectTree.js"></script>
+    <!-- 树形下拉框end -->
+</head>
+<body>
+<form id="myFormId2">
+    <div class="box1" id="formContent" whiteBg="true">
+            <input type="hidden" name="id" id="id" />
+            
+            <!-- 用户所在的组织机构ID -->
+            <input type="hidden" name="orgId" id="orgId" />
+            
+            <!-- 对于新增页面，需要通过这个隐藏域为用户选择默认所在的部门 -->
+            <input type="hidden" name="pageCheckedDepartId" id="pageCheckedDepartId" />
+            
+        <table class="tableStyle" formMode="transparent">
+            <tr>
+                <td width="150">用户名：</td>
+                <td><input type="text" name="userName" id="userName" class="validate[required,custom[noSpecialCaracters]]" /></td>
+            </tr>
+            <tr>
+                <td width="150">真实姓名：</td>
+                <td><input type="text" name="realName" id="realName" class="validate[required,length[0,20]]"/></td>
+            </tr>
+            <tr>
+                <td width="150" >性别：</td>
+                <td>
+                    <select prompt="请选择" url="<%=path%>dictionaryController/select?typeGroupCode=sex" id="sex" name="sex"></select>
+                </td>
+            </tr>
+            <tr>
+                <td width="150" id="">所属机构及部门：</td>
+                <td>
+                    <div class="selectTree validate[required]" id="department" name="departmentId" multiMode="true" keepDefaultStyle="true"></div>
+                </td>
+            </tr>
+            <tr>
+                <td width="150">手机：</td>
+                <td><input type="text" name="phone" id="phone" class="validate[mobilephone]" /></td>
+            </tr>
+             <tr>
+                <td width="150">邮件：</td>
+                <td><input type="text" name="email" id="email" class="validate[required,custom[email]]" /></td>
+            </tr>
+            <tr>
+                <td width="150">地址：</td>
+                <td><input type="text" name="address" id="address" class="validate[length[0,20]]" /></td>
+            </tr>
+            <tr>
+                <td width="150">备注：</td>
+                <td>
+                    <textarea name="description" id="description"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="确定" onclick="saveUserForOfficePlatForm()"/>
+                    <input type="button" value="关闭" onclick="parent.closeEmailDialog()"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+<script type="text/javascript" src="<%= path %>webpage/base/user/js/addUser.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+ <!--框架必需start-->
+<script type="text/javascript"
+	src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+<script type="text/javascript"
+	src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+<script type="text/javascript"
+	src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+<link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+<!--框架必需end-->
+<!-- 日期选择框start -->
+<script type="text/javascript"
+	src="<%= path %>ui-framework/qui/libs/js/form/datePicker/WdatePicker.js"></script>
+<!--数据表格start-->
+<script src="<%= path %>ui-framework/qui/libs/js/table/quiGrid.js"
+	type="text/javascript"></script>
+<!--数据表格end-->
+<!--自动提示框start-->
+<script type='text/javascript'
+	src='<%=path%>ui-framework/qui/libs/js/form/suggestion.js'></script>
+<!--自动提示框end-->
+<!--表单异步提交start-->
+<script src="<%= path %>ui-framework/qui/libs/js/form/form.js"
+	type="text/javascript"></script>
+<!--表单异步提交end-->
+
+<!-- 上传文件列表start -->
+<script type="text/javascript"
+	src="<%= path %>ui-framework/qui/libs/js/form/upload/fileUpload.js"></script>
+<!-- 上传文件列表end -->
+
+<script src="<%= path %>ui-framework/qui/libs/js/form/validationRule.js"
+	type="text/javascript"></script>
+<script src="<%= path %>ui-framework/qui/libs/js/form/validation.js"
+	type="text/javascript"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/drag.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/dialog.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/quiDialogWrapper.js"></script>
+</head>
+<body>
+	<form id="myFormId" 
+		showOnMouseOver="false" method="post" target="frmright"
+		enctype="multipart/form-data">
+		<div class="box1" id="formContent" whiteBg="true">
+			<input type="hidden" name="id" id="id" /> <input type="hidden"
+				name="selectVal" id="selectVal" />
+			<table class="tableStyle" formMode="transparent">
+
+				<tr>
+					<td width="150">图标名称：</td>
+					<td><input type="text" name="name" id="name"   class="validate[required]  float_left"></td>
+				</tr>
+				<tr>
+					<td width="150">图标类型：</td>
+					<td><select id="select" prompt="请选择"
+						url="<%=path%>iconController/select" name="type" class="validate[required]"></select></td>
+				</tr>
+				<tr>
+					<td width="150">小图标上传：</td>
+					<td><img id="smallImage" src="" width="30" height="30"
+						style="display: none" /><input showInfo="false" type="file" id="small" name="small" class="validate[custom[onlyImage]]  float_left" />
+<div class="float_left" style="padding:5px 0 0 0;">
+				<span class="star">*</span>	
+			</div>
+			<div class="validation_info">请上传图片</div>
+			<div class="clear"></div>	
+				</tr>
+				<tr>
+					<td width="150">中图标上传：</td>
+					<td><img id="mediumImage" src="" width="50" height="50"
+						style="display: none" /><input showInfo="false" type="file" id="medium" name="medium" class="validate[custom[onlyImage]]  float_left" />
+<div class="float_left" style="padding:5px 0 0 0;">
+				<span class="star">*</span>	
+			</div>
+			<div class="validation_info">请上传图片</div>
+			<div class="clear"></div>	
+				</tr>
+				<tr>
+					<td width="150">大图标上传：</td>
+					<td><img id="bigImage" src="" width="80" height="80"
+						style="display: none" /><input showInfo="false" type="file" id="big" name="big" class="validate[custom[onlyImage]]  float_left" />
+<div class="float_left" style="padding:5px 0 0 0;">
+				<span class="star">*</span>	
+			</div>
+			<div class="validation_info">请上传图片</div>
+			<div class="clear"></div>	
+				</tr>
+				<tr>
+					<td width="150">备注：</td>
+					<td><textarea name="description" id="description"></textarea>
+					</td>
+				</tr>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="确定" onclick="subManage()"/> <input
+						type="button" value="关闭" onclick="parent.closeMeDialog();" /></td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+<script type="text/javascript">
+	function subManage() {
+		//表单提交
+		$('#myFormId').submit(function() {
+			var id = $("#id").val();
+			//判断表单的客户端验证是否通过
+			if(id == ""){
+				var valid = $('#myFormId').validationEngine({
+					returnIsValid : true
+				});
+				
+				if (valid) {
+					$(this).ajaxSubmit({
+						async:false,
+						dataType:"json",
+						url:path + "iconController/insertIcon",
+						success : function(result) {
+							if(result.success){
+								quiAlertDialog(result.message, function() {
+									closeWin();
+								});
+							}else{
+								quiAlertDialog(result.message);
+							}
+						}
+					});
+				}
+				//阻止表单默认提交事件
+				return false;
+			}else{
+				
+				var valid = $('#myFormId').validationEngine({
+					returnIsValid : true
+				});
+				//$("#file").remove();
+				if (valid) {
+					$(this).ajaxSubmit({
+						//表单提交成功后的回调
+						async:false,
+						dataType:"json",
+						url:path + "iconController/insertIcon",
+						success : function(result) {
+							if(result.success){
+								quiAlertDialog(result.message, function() {
+									closeWin();
+								})
+							}else{
+								quiAlertDialog(result.message);
+							}
+						}
+					});
+				}
+				//阻止表单默认提交事件
+				return false;
+			}
+			
+		});
+	}
+
+	function closeWin() {
+		parent.closeMeDialog();
+	}
+	function getData() {
+		
+		var id = $("#id").val();
+		if (id != null && id != "") {
+// 			$("#small").removeAttr("class");
+// 			$("#big").removeAttr("class");
+// 			$("#medium").removeAttr("class");
+			$("#mediumImage").css("display", "block");
+			$("#bigImage").css("display", "block");
+			$("#smallImage").css("display", "block");
+			$.ajax({
+				url : path + "iconController/viewIcon",
+				datatype : "json",
+				data : {
+					"id" : id
+				},
+				type : "post",
+				success : function(data) {
+					var d = $.parseJSON(data);
+					$("#name").val(d.name);
+					$("#smallImage").attr("src", path + d.iconPath);
+					$("#bigImage").attr("src", path + d.bigIconPath);
+					$("#mediumImage").attr("src", path + d.mediumIconPath);
+					$("#select").attr("selectedValue", d.type);
+					$("#select").render();
+					$("#description").val(d.description);
+				}
+			})
+		}
+
+	}
+</script>
+</html>

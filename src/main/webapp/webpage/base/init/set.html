@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--框架必需start-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+    <link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+    <!--框架必需end-->
+    <script src="<%= path %>ui-framework/qui/libs/js/form/validationRule.js" type="text/javascript"></script>
+    <script src="<%= path %>ui-framework/qui/libs/js/form/validation.js" type="text/javascript"></script>
+    <!-- 表单验证end -->
+    <!--表单异步提交start-->
+    <script src="<%= path %>ui-framework/qui/libs/js/form/form.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/drag.js" id="drag"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/dialog.js" id="dialog"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/quiDialogWrapper.js"></script>
+    <!--表单异步提交end-->
+    <style>
+        td span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box2" panelWidth="500" panelTitle="设置机构、人员信息" showStatus="false" style="margin: 0 auto">
+    <form id="myFormId" action="" method="post" target="frmright">
+        <table class="tableStyle" formMode="transparent">
+                <tr>
+                    <td width="150">机构名称：</td>
+                    <td><input type="text" name="orgName" id="orgName" class="validate[required,length[1,20]]"  ><span>* 该项为必填项</span></td>
+                </tr>
+                <tr>
+                    <td width="150">机构编码：</td>
+                    <td><input type="text" name="orgCode" id="orgCode" class="validate[required,custom[noSpecialCaracters],length[1,20]]" ><span>* 该项为必填项</span></td>
+                </tr>
+                <tr>
+                    <td width="150">系统管理员：</td>
+                    <td><input type="text" name="userName" id="userName" value="admin" disabled="disabled"><span>默认用户，不允许修改</span></td>
+                </tr>
+                <tr>
+                    <td width="150">密码：</td>
+                    <td><input type="password" name="password" id="password" class="validate[required,length[6,11],custom[noSpecialCaracters]]"><span>* 该项为必填项</span></td>
+                </tr>
+                <tr>
+                    <td width="150">确认密码：</td>
+                    <td><input type="password" name="password1" id="password1" class="validate[required,confirm[password]]"><span>* 该项为必填项</span></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="下一步" onclick='subMit()'/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+</div>
+<script src="js/set.js"></script>
+</body>
+</html>

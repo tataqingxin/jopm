@@ -1,0 +1,13 @@
+{
+	success: "成功",
+	message: "查询成功",
+	obj: {
+		id: "X",
+		name: "X 战警",
+		code: "X MEN",
+		type: "2",
+		organization: {
+			id: "SOMEORG"
+		}
+	}
+}

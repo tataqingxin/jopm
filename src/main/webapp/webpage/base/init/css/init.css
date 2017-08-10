@@ -1,0 +1,28 @@
+.obox{
+    width: 400px;
+    height: 400px;
+    border: 1px solid dimgrey;
+    margin: 0 auto;
+    background: grey;
+    position: relative;
+}
+.obox_h1{
+    font-size: 20px;
+    font-family: 黑体;
+    font-weight: bold;
+    text-align: center;
+}
+.obox_p{
+    width: 300px;
+    margin: 0 auto;
+}
+.obox_btn{
+    position: absolute;
+    bottom: 30%;
+    right:20%;
+}
+.obox_btn a{
+    width: 60px;
+    height: 30px;
+    text-decoration: none;
+}

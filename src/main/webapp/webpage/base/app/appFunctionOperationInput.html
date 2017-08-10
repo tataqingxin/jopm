@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--框架必需start-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+    <link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+    <!--框架必需end-->
+    <!-- 日期选择框start -->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/form/datePicker/WdatePicker.js"></script>
+    <!--数据表格start-->
+    <script src="<%= path %>ui-framework/qui/libs/js/table/quiGrid.js" type="text/javascript"></script>
+    <!--数据表格end-->
+     <!--树组件start -->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/tree/ztree/ztree.js"></script>
+    <link href="<%= path %>ui-framework/qui/libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+    <!--自动提示框start-->
+    <script type='text/javascript' src='<%=path%>/libs/js/form/suggestion.js'></script>
+    <!--自动提示框end-->
+    <!--表单异步提交start-->
+    <script src="<%= path %>ui-framework/qui/libs/js/form/form.js" type="text/javascript"></script>
+    <!--表单异步提交end-->
+
+    <!-- 上传文件列表start -->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/form/upload/fileUpload.js"></script>
+    <!-- 上传文件列表end -->
+	<!-- 树形下拉框start -->
+	<script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/form/selectTree.js"></script>
+	<!-- 树形下拉框end -->
+    <script src="<%= path %>ui-framework/qui/libs/js/form/validationRule.js" type="text/javascript"></script>
+    <script src="<%= path %>ui-framework/qui/libs/js/form/validation.js" type="text/javascript"></script>
+    	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/drag.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/dialog.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/quiDialogWrapper.js"></script>
+</head>
+<body>
+<form id="myFormId"  method="post" target="frmright" >
+    <div class="box1" id="formContent" whiteBg="true">
+        <input type="hidden" name="id" id="id" />
+        <input type="hidden" name="functionId" id="functionId" />
+        <input type="hidden" name="applicationId" id="applicationId" />
+        <table class="tableStyle" formMode="transparent">
+            <tr>
+                <td width="150">名称：</td>
+                <td><input type="text" name="name" id="name" class="validate[required]" onblur="this.value=this.value.trim();"></td>
+            </tr>
+            <tr>
+                <td width="150">编码：</td>
+                <td><input type="text" name="code" id="code" class="validate[required]" onblur="this.value=this.value.trim();"></td>
+            </tr>
+            <tr>
+                <td width="150">图标：</td>
+                <td>
+                    <div class="selectTree validate[required]"  id="selectTree1" ></div>
+                    <input type="hidden" name="iconId" id="iconId" />
+                </td>
+            </tr>
+            <tr>
+                <td width="150">资源管理：</td>
+                <td>
+                    <div class="selectTree validate[required]"  id="resource" name="resourceIds" multiMode="true" keepDefaultStyle="true"></div>
+                </td>
+            </tr>
+            <tr>
+                <td width="150">描述：</td>
+                <td><textarea type="text" name="description" id="description" ></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="确定" onclick="subOpe()"/>
+                    <input type="button" value="关闭" onclick="closeWin()"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+<script type="text/javascript" src="<%= path %>webpage/base/app/js/appFunctionOperationInput.js"></script>
+</body>
+</html>

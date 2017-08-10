@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--框架必需start-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+    <link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+    <!--框架必需end-->
+<style type="text/css">
+   .font_bule{
+	  font-family: cursive;
+      font-size: small;
+     font-weight: bolder;
+}
+</style>
+<script type="text/javascript" >
+	function wrapData(data) {
+		 $("#org").append('<span>'+data.org+'</span>')
+		 $("#user").append('<span>'+data.user+'</span>')
+		 $("#dictionary").append('<span>'+data.dictionary+'</span>')
+		 $("#icon").append('<span>'+data.icon+'</span>')
+		 $("#role").append('<span>'+data.role+'</span>')
+		 $("#app").append('<span>'+data.app+'</span>')
+		 $("#function").append('<span>'+data.func_tion+'</span>')
+		 
+	 }
+ </script>
+</head>
+<body>
+<div style="margin-left: 150px;">
+    <table>
+        <tr>
+            <td width="300" id="org"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td width="300" id="user"></td>
+            <td><span></span></td>
+        </tr>
+        <tr>
+            <td width="300" id="dictionary"></td>
+            <td><span></span></td>
+        </tr>
+        <tr>
+            <td width="300" id="icon"></td>
+            <td><span></span></td>
+        </tr>
+        <tr>
+            <td width="300" id="role"></td>
+            <td><span></span></td>
+        </tr>
+        <tr>
+            <td width="300" id="app"></td>
+            <td><span></span></td>
+        </tr>
+        <tr>
+            <td width="300" id="function"></td>
+            <td><span></span></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

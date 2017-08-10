@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ include file="/taglibs/taglibs.html"%>
+<head>
+   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Title</title>
+    <!--框架必需start-->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/jquery.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/language/cn.js"></script>
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/framework.js"></script>
+    <link href="<%=path%>ui-framework/qui/libs/css/import_basic.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" id="skin" prePath="<%=path%>/" splitMode="true" href="<%=path%>ui-framework/qui/libs/skins/blue/style.css"/>
+	<link rel="stylesheet" type="text/css" id="customSkin" href="<%=path%>ui-framework/qui/system/layout/skin/style.css"/>
+    <!--框架必需end-->
+    <!-- 日期选择框start -->
+    <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/form/datePicker/WdatePicker.js"></script>
+	<!-- 表单验证start -->
+	<script src="<%= path %>ui-framework/qui/libs/js/form/validationRule.js" type="text/javascript"></script>
+	<script src="<%= path %>ui-framework/qui/libs/js/form/validation.js" type="text/javascript"></script>
+	<!-- 表单验证end -->
+    <!--表单异步提交start-->
+    <script src="<%= path %>ui-framework/qui/libs/js/form/form.js" type="text/javascript"></script>
+    <!--表单异步提交end-->
+    <!--树组件start -->
+    <script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/tree/ztree/ztree.js"></script>
+    <link href="<%=path%>ui-framework/qui/libs/js/tree/ztree/ztree.css" rel="stylesheet" type="text/css"/>
+    <!-- 树形下拉框start -->
+    <script type="text/javascript" src="<%=path%>ui-framework/qui/libs/js/form/selectTree.js"></script>
+    <!-- 树形下拉框end -->
+    
+   <script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/drag.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/libs/js/popup/dialog.js"></script>
+	<script type="text/javascript" src="<%= path %>ui-framework/qui/quiDialogWrapper.js"></script>
+	<!--引入弹窗组件end--> 
+    
+</head>
+<body>
+<form id="myFormId">
+    <div class="box1" id="formContent" whiteBg="true">
+            <input type="hidden" name="id" id="id" />
+         <table class="tableStyle" formMode="transparent">
+            <tr id="passwordTr">
+                <td width="150">旧密码：</td>
+                <td><input type="password" name="passwordOld" id="passwordOld" class="validate[required,length[6,18]]" /></td>
+            </tr>
+            <tr id="passwordTr">
+                <td width="150">新密码：</td>
+                <td><input type="password" name="passwordNew" id="passwordNew" class="validate[required,custom[SpecialCaracters]]" /></td>
+            </tr>
+            <tr id="cpasswordTr">
+                <td width="150">再次输入新密码：</td>
+                <td><input type="password" id="rePassword"class="validate[required,confirm[passwordNew]]" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="确定" onclick="updatePasswWord()"/>
+                    <input type="button" value="关闭" onclick="parent.updPwdDialogClose()"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+<script type="text/javascript" src="<%= path %>webpage/base/user/js/addUser.js"></script>
+<script type="text/javascript" src="<%= path %>webpage/base/user/js/md5.js"></script>
+</body>
+</html>

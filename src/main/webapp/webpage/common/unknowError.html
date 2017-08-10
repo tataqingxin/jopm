@@ -1,0 +1,16 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<html>
+<head>
+<title>访问错误</title>
+</head>
+<body>
+	<%
+		Exception e = (Exception) request.getAttribute("exception");
+	%>
+	<H2>出现错误: 未知异常</H2>
+	<%
+		if (e != null)
+			e.printStackTrace();
+	%>
+</body>
+</html>
